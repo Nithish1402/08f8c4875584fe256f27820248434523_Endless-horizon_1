@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online FIR Form</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://rawgit.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <h2 class="title">Online FIR Form</h2>
+        <form id="firForm">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" required>
+            
+            <label for="age">Age:</label>
+            <input type="number" id="age" required>
+            
+            <label>Gender:</label>
+            <label for="male"><input type="radio" id="male" name="gender" value="Male" required> Male</label>
+            <label for="female"><input type="radio" id="female" name="gender" value="Female" required> Female</label>
+            
+            <label for="mobile">Mobile Number:</label>
+            <input type="tel" id="mobile" required>
+
+            <label for="complaintType">Complaint Type:</label>
+            <select id="complaintType" required>
+                <option value="" disabled selected>Select a complaint type</option>
+                <option value="snatch">Snatch</option>
+                <option value="robbery">Robbery</option>
+                <option value="lifeThreat">Life Threat</option>
+                <option value="terrorist">Terrorist Activity</option>
+                <option value="sexual Harassment">sexual Harassment</option>
+            </select>
+            
+            <label for="incident">Incident Description:</label>
+            <textarea id="incident" rows="4" required></textarea>
+
+            <button type="button" onclick="submitFIR()">Submit FIR</button>
+        </form>
+
+        <div id="response" class="response"></div>
+
+        <div id="locationModule">
+            <button onclick="getCurrentLocation()">Get Current Location</button>
+            <p id="locationResult"></p>
+        </div>
+        <div id="pdfModule">
+            <button onclick="generatePDF()">Download as PDF</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
